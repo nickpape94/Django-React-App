@@ -1,11 +1,14 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { getLeads, deleteLead } from "../../actions/leads";
+import { getLeads, deleteLead, addLead } from "../../actions/leads";
 
 export class Leads extends Component {
   static propTypes = {
-    leads: PropTypes.array.isRequired
+    leads: PropTypes.array.isRequired,
+    getLeads: PropTypes.func.isRequired,
+    deleteLead: PropTypes.func.isRequired,
+    addLead: PropTypes.func.isRequired
   };
 
   componentDidMount() {
@@ -56,5 +59,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getLeads, deleteLead }
+  { getLeads, deleteLead, addLead }
 )(Leads);
